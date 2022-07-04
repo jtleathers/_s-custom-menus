@@ -1,0 +1,84 @@
+/* 
+This code is a modification of the _s navigation styles and meant to replace the default navigation styles in _s.
+Some code as been added (see the comments in the CSS) and some code has been moved into a media query to only apply to larger screens.
+*/
+
+.main-navigation {
+	display: block;
+	width: 100%;
+}
+
+.main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+.main-navigation li {
+	position: relative;
+}
+
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+}
+
+.main-navigation ul ul {
+	position: absolute;
+	top: 100%;
+	left: -999em;
+    /* The other half of these styles are in the media query */
+}
+
+/* The selector for .toggled has been added */
+.main-navigation ul li.focus > ul,
+.main-navigation ul li.toggled > ul {
+	position: static;
+}
+
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+
+	.main-navigation ul ul {
+		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+		float: left;
+		z-index: 99999;
+	}
+	
+	.main-navigation ul ul a {
+		width: 200px;
+	}
+	
+    /* The selector for .toggled has been added */
+	.main-navigation ul li:hover > ul,
+	.main-navigation ul li.focus > ul,
+	.main-navigation ul li.toggled > ul {
+		position: absolute;
+		left: auto;
+	}
+
+	.main-navigation ul ul ul {
+		left: -999em;
+		top: 0;
+	}
+
+	.main-navigation ul ul li:hover > ul,
+	.main-navigation ul ul li.focus > ul {
+		display: block;
+		left: auto;
+	}
+
+	.menu-toggle,
+	.sub-menu-toggle {
+		display: none;
+	}
+	
+	.main-navigation ul {
+		display: flex;
+	}
+}
