@@ -18,7 +18,7 @@ class FWD_Add_Sub_Menu_Button_Walker extends Walker_Nav_Menu {
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent  = str_repeat( "\t", $depth );
-		$output .= "\n$indent<button class='sub-menu-toggle' aria-expanded='false'>+</button><ul class='sub-menu'>\n";
+		$output .= "\n$indent<button class='sub-menu-toggle' aria-expanded='false' aria-label='Toggle sub-menu'>+</button><ul class='sub-menu'>\n";
 	}
 	/**
 	 * Adds buttons for sub-menu nav items for mobile.
